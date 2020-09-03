@@ -3,16 +3,24 @@ import { Table, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Users = (props) => {
-    const { 
-        name: {first}, 
-        email, 
+    const {
+        name: { first },
+        email,
         picture: { thumbnail },
-        login: { 
-            uuid,
-            username
+        login: {
+            uuid
         }
-     } = props.user;
-    console.log(props.user)
+    } = props.user;
+    // console.log(props.user)
+
+    // Using useHistory() hook - another way to add dynamic router parameter
+    // const history = useHistory();
+
+    // const handleClick = (uuid) => {
+    //     const url = `/user/${uuid}`;
+    //     history.push(url)
+    // }
+
     return (
         <Table striped bordered hover>
             <thead>
@@ -31,6 +39,9 @@ const Users = (props) => {
                     <td>{first} </td>
                     <td>{email}</td>
                     <td> <Link to={`/user/${uuid}`}> Show Detail </Link> </td>
+
+                    {/* <button onClick={() => {handleClick(uuid)}}> Show Detail</button> */}
+
                 </tr>
             </tbody>
         </Table>

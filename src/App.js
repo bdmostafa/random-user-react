@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -13,19 +14,25 @@ import Header from './components/Header';
 
 
 function App() {
+ // Store data to state
+ const [users, setUsers] = useState([]);
+
+
+
+
 
   return (
     <Router>
       <Header/>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home users={users} setUsers={setUsers} />
         </Route>
         <Route path="/home">
-          <Home />
+          <Home users={users} setUsers={setUsers} />
         </Route>
         <Route path="/user/:uuid">
-          <UserDetails />
+          <UserDetails users={users} />
         </Route>
         <Route path="*">
           <NotFound />
