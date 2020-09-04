@@ -1,16 +1,15 @@
 import React from 'react';
-import { Table, Image, Container } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Users = (props) => {
+    const { user, idx } = props;
     const {
-        name: { first },
         email,
+        name: { first },
         picture: { thumbnail },
-        login: {
-            uuid
-        }
-    } = props.user;
+        login: { uuid }
+    } = user;
     // console.log(props.user)
 
     // Using useHistory() hook - another way to add dynamic router parameter
@@ -22,31 +21,14 @@ const Users = (props) => {
     // }
 
     return (
-        <Container>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Profile</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td> <Image src={thumbnail} /> </td>
-                        <td>{first} </td>
-                        <td>{email}</td>
-                        <td> <Link to={`/user/${uuid}`}> Show Detail </Link> </td>
-
-                        {/* <button onClick={() => {handleClick(uuid)}}> Show Detail</button> */}
-
-                    </tr>
-                </tbody>
-            </Table>
-        </Container>
+        <tr>
+            <td> {idx} </td>
+            <td> <Image src={thumbnail} /> </td>
+            <td>{first} </td>
+            <td>{email}</td>
+            <td> <Link to={`/user/${uuid}`}> Show Detail </Link> </td>
+            {/* <button onClick={() => {handleClick(uuid)}}> Show Detail</button> */}
+        </tr>
     );
 };
 

@@ -11,6 +11,7 @@ import UserDetails from './components/UserDetails';
 import NotFound from './components/NotFound';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <NotFound />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }
