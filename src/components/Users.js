@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Image } from 'react-bootstrap';
+import { Table, Image, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Users = (props) => {
@@ -22,29 +22,31 @@ const Users = (props) => {
     // }
 
     return (
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Profile</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td> <Image src={thumbnail} /> </td>
-                    <td>{first} </td>
-                    <td>{email}</td>
-                    <td> <Link to={`/user/${uuid}`}> Show Detail </Link> </td>
+        <Container>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td> <Image src={thumbnail} /> </td>
+                        <td>{first} </td>
+                        <td>{email}</td>
+                        <td> <Link to={`/user/${uuid}`}> Show Detail </Link> </td>
 
-                    {/* <button onClick={() => {handleClick(uuid)}}> Show Detail</button> */}
+                        {/* <button onClick={() => {handleClick(uuid)}}> Show Detail</button> */}
 
-                </tr>
-            </tbody>
-        </Table>
+                    </tr>
+                </tbody>
+            </Table>
+        </Container>
     );
 };
 

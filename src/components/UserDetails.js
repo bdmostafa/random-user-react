@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 const UserDetails = (props) => {
     const { uuid } = useParams();
@@ -13,6 +14,7 @@ const UserDetails = (props) => {
         nat,
         dob: {age}, 
         picture: { large },
+        registered: { date },
         location: {
             city,
             country,
@@ -31,17 +33,19 @@ const UserDetails = (props) => {
             last
         } 
     } = user;
-    console.log(user);
+
+    // console.log(user);
+
     return (
-        <div>
+        <Container>
             <h3>User Detail here ... </h3>
-          
+            <img src={large} alt=""/>
               <p> {title} {first} {last} </p>
               <p>{cell}</p>
               <p>{email}</p>
               <p>{gender}</p>
               <p>{nat}</p>
-              {/* <p>{age}</p> */}
+              <p>{age}</p>
               <p>{city}</p>
               <p>{country}</p>
               <p>{postcode}</p>
@@ -49,10 +53,8 @@ const UserDetails = (props) => {
               <p>{name}</p>
               <p>{username}</p>
               <p>{password}</p>
-              <img src={large} alt=""/>
-     
-            
-        </div>
+              <p> Registered at: {date} </p>
+        </Container>
     );
 };
 
